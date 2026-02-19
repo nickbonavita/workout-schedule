@@ -132,8 +132,29 @@ h1 {
     appearance: none;
     -webkit-appearance: none;
     color: rgba(255, 255, 255, 0.92);
+    opacity: 1;
     text-transform: uppercase;
     letter-spacing: 0.7px;
+}
+
+.tab-button[data-tab="push"] {
+    background-color: #ef9a9a;
+}
+
+.tab-button[data-tab="pull"] {
+    background-color: #80deea;
+}
+
+.tab-button[data-tab="legs"] {
+    background-color: #ce93d8;
+}
+
+.tab-button[data-tab="cardio"] {
+    background-color: #81c784;
+}
+
+.tab-button[data-tab="core"] {
+    background-color: #ffcc80;
 }
 
 /* Neutral off-white backgrounds for each tab */
@@ -143,28 +164,28 @@ h1 {
 
 .tab-button.active {
     color: #fff;
-    background: rgba(0,0,0,0.12);
-    background-color: rgba(0,0,0,0.12);
+    opacity: 1;
+    box-shadow: inset 0 0 0 2px rgba(0, 0, 0, 0.12);
 }
 .tab-button.active[data-tab="push"] {
-    background: #e53935 !important;
-    background-color: #e53935 !important;
+    background: #b71c1c !important;
+    background-color: #b71c1c !important;
 }
 .tab-button.active[data-tab="pull"] {
-    background: #039be5 !important;
-    background-color: #039be5 !important;
+    background: #0277bd !important;
+    background-color: #0277bd !important;
 }
 .tab-button.active[data-tab="legs"] {
-    background: #8e24aa !important;
-    background-color: #8e24aa !important;
+    background: #6a1b9a !important;
+    background-color: #6a1b9a !important;
 }
 .tab-button.active[data-tab="cardio"] {
-    background: #2e7d32 !important;
-    background-color: #2e7d32 !important;
+    background: #1b5e20 !important;
+    background-color: #1b5e20 !important;
 }
 .tab-button.active[data-tab="core"] {
-    background: #f57c00 !important;
-    background-color: #f57c00 !important;
+    background: #e65100 !important;
+    background-color: #e65100 !important;
 }
 
 .tab-button:focus,
