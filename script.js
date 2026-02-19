@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'Incline Dumbbell Press': {
             muscles: { primary: 'Clavicular Pectoralis Major (Upper Chest)', secondary: 'Anterior Deltoid (Front Shoulder)', tertiary: 'Triceps Brachii (Back of Upper Arm)' },
             howTo: 'Set bench to a slight incline. Start dumbbells at chest level, press upward and slightly inward, then lower slowly to maintain tension on the upper chest.',
-            images: []
+            images: [https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQORpX1kNzg45QhspdfhlqvsIpnX6jrS0qWdQ&s]
         },
         'Peck Deck': {
             muscles: { primary: 'Pectoralis Major (Chest)', secondary: 'Anterior Deltoid (Front Shoulder)', tertiary: 'Serratus Anterior (Ribcage Stabilizer)' },
