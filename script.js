@@ -3,15 +3,48 @@ document.addEventListener('DOMContentLoaded', function() {
     const tabContents = document.querySelectorAll('.tab-content');
     const workoutCards = document.querySelectorAll('.workout-card');
     const body = document.body;
-    const exerciseModal = document.getElementById('exercise-modal');
-    const exerciseClose = document.getElementById('exercise-close');
+    let exerciseModal = document.getElementById('exercise-modal');
+    let exerciseClose = document.getElementById('exercise-close');
 
-    const exerciseTitle = document.getElementById('exercise-title');
-    const exercisePrimary = document.getElementById('exercise-primary');
-    const exerciseSecondary = document.getElementById('exercise-secondary');
-    const exerciseTertiary = document.getElementById('exercise-tertiary');
-    const exerciseHowTo = document.getElementById('exercise-howto');
-    const exerciseImages = document.getElementById('exercise-images');
+    let exerciseTitle = document.getElementById('exercise-title');
+    let exercisePrimary = document.getElementById('exercise-primary');
+    let exerciseSecondary = document.getElementById('exercise-secondary');
+    let exerciseTertiary = document.getElementById('exercise-tertiary');
+    let exerciseHowTo = document.getElementById('exercise-howto');
+    let exerciseImages = document.getElementById('exercise-images');
+
+    function ensureModalElements() {
+        if (!exerciseModal) {
+            const modalMarkup = `
+                <div id="exercise-modal" class="exercise-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="exercise-title">
+                    <div class="exercise-modal-card">
+                        <button id="exercise-close" class="exercise-close" type="button" aria-label="Close exercise details">×</button>
+                        <h2 id="exercise-title">Exercise Title</h2>
+                        <div class="exercise-line"><strong>Primary:</strong> <span id="exercise-primary"></span></div>
+                        <div class="exercise-line"><strong>Secondary:</strong> <span id="exercise-secondary"></span></div>
+                        <div class="exercise-line"><strong>Tertiary:</strong> <span id="exercise-tertiary"></span></div>
+                        <h3>How to perform</h3>
+                        <p id="exercise-howto"></p>
+                        <h3>Image examples</h3>
+                        <div id="exercise-images" class="exercise-images"></div>
+                    </div>
+                </div>
+            `;
+
+            document.body.insertAdjacentHTML('beforeend', modalMarkup);
+
+            exerciseModal = document.getElementById('exercise-modal');
+            exerciseClose = document.getElementById('exercise-close');
+            exerciseTitle = document.getElementById('exercise-title');
+            exercisePrimary = document.getElementById('exercise-primary');
+            exerciseSecondary = document.getElementById('exercise-secondary');
+            exerciseTertiary = document.getElementById('exercise-tertiary');
+            exerciseHowTo = document.getElementById('exercise-howto');
+            exerciseImages = document.getElementById('exercise-images');
+        }
+    }
+
+    ensureModalElements();
 
         /*
             EDIT EXERCISE DATA HERE
@@ -192,8 +225,11 @@ document.addEventListener('DOMContentLoaded', function() {
         exerciseModal.setAttribute('aria-hidden', 'true');
     }
 
-    const initialTab = document.querySelector('.tab-button.active').getAttribute('data-tab');
-    setBodyBg(initialTab);
+    const initialActiveTabButton = document.querySelector('.tab-button.active');
+    if (initialActiveTabButton) {
+        const initialTab = initialActiveTabButton.getAttribute('data-tab');
+        setBodyBg(initialTab);
+    }
 
     tabButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -210,8 +246,6 @@ document.addEventListener('DOMContentLoaded', function() {
         card.setAttribute('tabindex', '0');
         card.setAttribute('role', 'button');
         card.setAttribute('aria-label', `View details for ${card.querySelector('h2')?.textContent?.trim() || 'exercise'}`);
-
-        card.addEventListener('click', () => openExerciseModal(card));
         card.addEventListener('keydown', (event) => {
             if (event.key === 'Enter' || event.key === ' ') {
                 event.preventDefault();
@@ -220,13 +254,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    exerciseClose.addEventListener('click', closeExerciseModal);
-
-    exerciseModal.addEventListener('click', (event) => {
-        if (event.target === exerciseModal) {
-            closeExerciseModal();
+    document.addEventListener('click', (event) => {
+        const card = event.target.closest('.workout-card');
+        if (card) {
+            openExerciseModal(card);
         }
     });
+
+    if (exerciseClose) {
+        exerciseClose.addEventListener('click', closeExerciseModal);
+    }
+
+    if (exerciseModal) {
+        exerciseModal.addEventListener('click', (event) => {
+            if (event.target === exerciseModal) {
+                closeExerciseModal();
+            }
+        });
+    }
 
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape' && exerciseModal.classList.contains('open')) {
