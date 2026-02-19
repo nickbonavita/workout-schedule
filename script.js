@@ -1,20 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
     const tabButtons = document.querySelectorAll('.tab-button');
     const tabContents = document.querySelectorAll('.tab-content');
-    const container = document.querySelector('.container');
+    const body = document.body;
 
-    function setContainerBg(tabName) {
+    function setBodyBg(tabName) {
         // Remove all bg classes
-        container.classList.remove('push-active', 'pull-active', 'legs-active', 'cardio-active', 'core-active');
+        body.classList.remove('push-active', 'pull-active', 'legs-active', 'cardio-active', 'core-active');
         // Add the active class for this tab
         const bgClass = tabName + '-active';
-        container.classList.add(bgClass);
-        console.log('Setting container class to:', bgClass);
+        body.classList.add(bgClass);
+        console.log('Setting body class to:', bgClass);
     }
 
     // Set initial background
     const initialTab = document.querySelector('.tab-button.active').getAttribute('data-tab');
-    setContainerBg(initialTab);
+    setBodyBg(initialTab);
     console.log('Initial tab:', initialTab);
 
     tabButtons.forEach(button => {
@@ -30,8 +30,8 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.add('active');
             document.getElementById(tabName).classList.add('active');
 
-            // Set container background
-            setContainerBg(tabName);
+            // Set body background
+            setBodyBg(tabName);
         });
     });
 });
