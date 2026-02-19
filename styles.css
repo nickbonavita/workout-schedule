@@ -51,6 +51,27 @@ h1 {
     border: 2px solid transparent;
 }
 
+/* Neutral off-white backgrounds for each tab */
+.tab-button[data-tab="push"] {
+    background: #FFF5F7;
+}
+
+.tab-button[data-tab="pull"] {
+    background: #F0FBFC;
+}
+
+.tab-button[data-tab="legs"] {
+    background: #FAF3FC;
+}
+
+.tab-button[data-tab="cardio"] {
+    background: #F5FCF5;
+}
+
+.tab-button[data-tab="core"] {
+    background: #FFFBF0;
+}
+
 .tab-button:hover {
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -199,6 +220,26 @@ h1 {
     color: white;
 }
 
+/* Ensure inactive tabs use subtle off-white tints matching their section colors */
+.tabs .tab-button:not(.active)[data-tab="push"] {
+    background: #FFF5F7;
+}
+
+.tabs .tab-button:not(.active)[data-tab="pull"] {
+    background: #F0FBFC;
+}
+
+.tabs .tab-button:not(.active)[data-tab="legs"] {
+    background: #FAF3FC;
+}
+
+.tabs .tab-button:not(.active)[data-tab="cardio"] {
+    background: #F5FCF5;
+}
+
+.tabs .tab-button:not(.active)[data-tab="core"] {
+    background: #f8edcd;
+}
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
