@@ -4,16 +4,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const container = document.querySelector('.container');
 
     function setContainerBg(tabName) {
+        // Remove all bg classes
         container.classList.remove('push-active', 'pull-active', 'legs-active', 'cardio-active', 'core-active');
-        container.classList.add(tabName + '-active');
+        // Add the active class for this tab
+        const bgClass = tabName + '-active';
+        container.classList.add(bgClass);
+        console.log('Setting container class to:', bgClass);
     }
 
     // Set initial background
-    setContainerBg(document.querySelector('.tab-button.active').getAttribute('data-tab'));
+    const initialTab = document.querySelector('.tab-button.active').getAttribute('data-tab');
+    setContainerBg(initialTab);
+    console.log('Initial tab:', initialTab);
 
     tabButtons.forEach(button => {
         button.addEventListener('click', function() {
             const tabName = this.getAttribute('data-tab');
+            console.log('Clicked tab:', tabName);
 
             // Remove active class from all buttons and contents
             tabButtons.forEach(btn => btn.classList.remove('active'));
