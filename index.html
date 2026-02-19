@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout Schedule</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Workout Schedule</h1>
+        
+        <div class="tabs">
+            <button class="tab-button active" data-tab="push">Push</button>
+            <button class="tab-button" data-tab="pull">Pull</button>
+            <button class="tab-button" data-tab="legs">Legs</button>
+            <button class="tab-button" data-tab="cardio">Cardio</button>
+            <button class="tab-button" data-tab="core">Core</button>
+        </div>
+
+        <!-- Push Section -->
+        <div id="push" class="tab-content active push-section">
+            <div class="workout-card">
+                <h2>Bench Press</h2>
+                <p class="muscle-groups">Pectoralis Major (Chest), Anterior Deltoids (Front Shoulders), Triceps Brachii (Triceps)</p>
+            </div>
+            <div class="workout-card">
+                <h2>Incline Dumbbell Press</h2>
+                <p class="muscle-groups">Clavicular Head of Pectoralis Major (Upper Chest), Anterior Deltoids (Front Shoulders), Triceps Brachii (Triceps)</p>
+            </div>
+            <div class="workout-card">
+                <h2>Peck Deck</h2>
+                <p class="muscle-groups">Pectoralis Major (Chest), Anterior Deltoids (Front Shoulders)</p>
+            </div>
+            <div class="workout-card">
+                <h2>Tricep Rope Pushdown</h2>
+                <p class="muscle-groups">Triceps Brachii (Triceps), Medial Head (Triceps)</p>
+            </div>
+            <div class="workout-card">
+                <h2>Dips</h2>
+                <p class="muscle-groups">Triceps Brachii (Triceps), Pectoralis Major (Chest), Anterior Deltoids (Front Shoulders)</p>
+            </div>
+        </div>
+
+        <!-- Pull Section -->
+        <div id="pull" class="tab-content pull-section">
+            <div class="workout-card">
+                <h2>Pull-ups</h2>
+                <p class="muscle-groups">Latissimus Dorsi (Lats), Biceps Brachii (Biceps), Rhomboids (Upper Back)</p>
+            </div>
+            <div class="workout-card">
+                <h2>Cable Rows</h2>
+                <p class="muscle-groups">Latissimus Dorsi (Lats), Rhomboids (Upper Back), Erector Spinae (Lower Back), Biceps Brachii (Biceps)</p>
+            </div>
+            <div class="workout-card">
+                <h2>Lat Pull Down</h2>
+                <p class="muscle-groups">Latissimus Dorsi (Lats), Biceps Brachii (Biceps), Rhomboids (Upper Back)</p>
+            </div>
+            <div class="workout-card">
+                <h2>Face Pulls</h2>
+                <p class="muscle-groups">Rear Deltoids (Rear Shoulders), Traps, Rhomboids (Upper Back)</p>
+            </div>
+            <div class="workout-card">
+                <h2>Standing Bicep Curls</h2>
+                <p class="muscle-groups">Biceps Brachii (Biceps), Brachialis (Deep Bicep)</p>
+            </div>
+        </div>
+
+        <!-- Legs Section -->
+        <div id="legs" class="tab-content legs-section">
+            <div class="workout-card">
+                <h2>Leg Press</h2>
+                <p class="muscle-groups">Quadriceps (Front Thighs), Glutes (Buttocks), Hamstrings (Rear Thighs)</p>
+            </div>
+            <div class="workout-card">
+                <h2>Leg Extension</h2>
+                <p class="muscle-groups">Quadriceps (Front Thighs), Vastus Medialis (Inner Quad), Vastus Lateralis (Outer Quad)</p>
+            </div>
+            <div class="workout-card">
+                <h2>Leg Curl</h2>
+                <p class="muscle-groups">Hamstrings (Rear Thighs), Biceps Femoris (Back of Thigh)</p>
+            </div>
+            <div class="workout-card">
+                <h2>Calf Raises</h2>
+                <p class="muscle-groups">Gastrocnemius (Calves), Soleus (Deep Calf Muscle)</p>
+            </div>
+        </div>
+
+        <!-- Cardio Section -->
+        <div id="cardio" class="tab-content cardio-section">
+            <div class="workout-card">
+                <h2>Running</h2>
+                <p class="muscle-groups">Cardiovascular Endurance, Quadriceps (Front Thighs), Hamstrings (Rear Thighs), Glutes</p>
+            </div>
+            <div class="workout-card">
+                <h2>Cycling</h2>
+                <p class="muscle-groups">Cardiovascular Endurance, Quadriceps (Front Thighs), Glutes, Hamstrings (Rear Thighs)</p>
+            </div>
+            <div class="workout-card">
+                <h2>Stairmaster</h2>
+                <p class="muscle-groups">Cardiovascular Endurance, Quadriceps (Front Thighs), Glutes (Buttocks), Hamstrings (Rear Thighs)</p>
+            </div>
+            <div class="workout-card">
+                <h2>Swimming</h2>
+                <p class="muscle-groups">Cardiovascular Endurance, Deltoids (Shoulders), Latissimus Dorsi (Lats), Full Body Coordination</p>
+            </div>
+        </div>
+
+        <!-- Core Section -->
+        <div id="core" class="tab-content core-section">
+            <div class="workout-card">
+                <h2>Planks</h2>
+                <p class="muscle-groups">Rectus Abdominis (Abs), Transverse Abdominis (Deep Core), Erector Spinae (Back)</p>
+            </div>
+            <div class="workout-card">
+                <h2>Crunches</h2>
+                <p class="muscle-groups">Rectus Abdominis (Abs), Obliques (Side Abs)</p>
+            </div>
+            <div class="workout-card">
+                <h2>Hanging Leg Raises</h2>
+                <p class="muscle-groups">Rectus Abdominis (Abs), Iliopsoas (Hip Flexors), Lower Abs</p>
+            </div>
+            <div class="workout-card">
+                <h2>Russian Twists</h2>
+                <p class="muscle-groups">Obliques (Side Abs), Rectus Abdominis (Abs), Transverse Abdominis (Deep Core)</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

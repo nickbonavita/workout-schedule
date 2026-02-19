@@ -1,0 +1,237 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tab-button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #f0f0f0;
+    color: #666;
+    border: 2px solid transparent;
+}
+
+.tab-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tab-button.active {
+    color: white;
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Workout Cards */
+.workout-card {
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border-left: 5px solid;
+}
+
+.workout-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.workout-card h2 {
+    font-size: 1.4em;
+    margin-bottom: 12px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.muscle-groups {
+    font-size: 0.95em;
+    line-height: 1.6;
+    opacity: 0.85;
+    font-weight: 500;
+}
+
+/* Push Section - Pastel Pink */
+.push-section .tab-button.active {
+    background: #FFB3BA;
+    border-color: #FFB3BA;
+}
+
+.push-section.active ~ .tabs .tab-button[data-tab="push"].active {
+    background: #FFB3BA;
+}
+
+.push-section .workout-card {
+    background: linear-gradient(135deg, #FFE0E6 0%, #FFF0F3 100%);
+    border-left-color: #FFB3BA;
+    color: #8B4A52;
+}
+
+.push-section .workout-card h2 {
+    color: #D64550;
+}
+
+/* Pull Section - Pastel Blue */
+.pull-section .workout-card {
+    background: linear-gradient(135deg, #B3E5FC 0%, #E1F5FE 100%);
+    border-left-color: #81D4D8;
+    color: #356B82;
+}
+
+.pull-section .workout-card h2 {
+    color: #0288D1;
+}
+
+/* Legs Section - Pastel Purple */
+.legs-section .workout-card {
+    background: linear-gradient(135deg, #E1BEE7 0%, #F3E5F5 100%);
+    border-left-color: #CE93D8;
+    color: #6A3E6B;
+}
+
+.legs-section .workout-card h2 {
+    color: #8E24AA;
+}
+
+/* Cardio Section - Pastel Green */
+.cardio-section .workout-card {
+    background: linear-gradient(135deg, #C8E6C9 0%, #E8F5E9 100%);
+    border-left-color: #81C784;
+    color: #2E6D31;
+}
+
+.cardio-section .workout-card h2 {
+    color: #388E3C;
+}
+
+/* Core Section - Pastel Yellow/Orange */
+.core-section .workout-card {
+    background: linear-gradient(135deg, #FFE0B2 0%, #FFF8E1 100%);
+    border-left-color: #FFB74D;
+    color: #8B6914;
+}
+
+.core-section .workout-card h2 {
+    color: #F57C00;
+}
+
+/* Tab Button Active States */
+.tabs .tab-button[data-tab="push"].active {
+    background: #FFB3BA;
+    color: white;
+}
+
+.tabs .tab-button[data-tab="pull"].active {
+    background: #81D4D8;
+    color: white;
+}
+
+.tabs .tab-button[data-tab="legs"].active {
+    background: #CE93D8;
+    color: white;
+}
+
+.tabs .tab-button[data-tab="cardio"].active {
+    background: #81C784;
+    color: white;
+}
+
+.tabs .tab-button[data-tab="core"].active {
+    background: #FFB74D;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin-bottom: 25px;
+    }
+
+    .tabs {
+        gap: 8px;
+    }
+
+    .tab-button {
+        padding: 10px 18px;
+        font-size: 0.9em;
+    }
+
+    .tab-content.active {
+        grid-template-columns: 1fr;
+    }
+
+    .workout-card {
+        padding: 20px;
+    }
+
+    .workout-card h2 {
+        font-size: 1.2em;
+    }
+
+    .muscle-groups {
+        font-size: 0.9em;
+    }
+}
