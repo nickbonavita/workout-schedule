@@ -13,6 +13,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const exerciseHowTo = document.getElementById('exercise-howto');
     const exerciseImages = document.getElementById('exercise-images');
 
+        /*
+            EDIT EXERCISE DATA HERE
+            - muscles.primary / secondary / tertiary: text shown in the modal
+            - howTo: short step-by-step form cues
+            - images: add image URLs, e.g. ["https://.../img1.jpg", "https://.../img2.jpg"]
+        */
     const EXERCISE_DETAILS = {
         'Bench Press': {
             muscles: { primary: 'Pectoralis Major', secondary: 'Anterior Deltoids', tertiary: 'Triceps Brachii' },
