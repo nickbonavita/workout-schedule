@@ -61,6 +61,23 @@ h1 {
     letter-spacing: 0.3px;
 }
 
+.subheading-name {
+    display: block;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #1f2a37;
+    margin-top: 6px;
+}
+
+.subheading-credentials {
+    display: block;
+    font-size: 0.95em;
+    letter-spacing: 0.6px;
+    color: #6b7280;
+    margin-top: 2px;
+}
+
 /* Tabs */
 .tabs {
     display: flex;
