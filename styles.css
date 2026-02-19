@@ -228,6 +228,7 @@ h1 {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
     border-left: 5px solid;
+    cursor: pointer;
 }
 
 .workout-card:hover {
@@ -240,6 +241,12 @@ h1 {
     margin-bottom: 12px;
     font-weight: 700;
     line-height: 1.3;
+}
+
+.workout-card:focus,
+.workout-card:focus-visible {
+    outline: 2px solid rgba(33, 33, 33, 0.35);
+    outline-offset: 2px;
 }
 
 .muscle-groups {
@@ -304,6 +311,96 @@ h1 {
     color: #F57C00;
 }
 
+.exercise-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(15, 23, 42, 0.35);
+    padding: 20px;
+    z-index: 999;
+}
+
+.exercise-modal.open {
+    display: flex;
+}
+
+.exercise-modal-card {
+    width: min(640px, 100%);
+    max-height: 85vh;
+    overflow-y: auto;
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 24px;
+    position: relative;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
+}
+
+.exercise-close {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    border: none;
+    background: transparent;
+    color: #1f2937;
+    font-size: 1.8em;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.exercise-modal-card h2 {
+    color: #111827;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 8px;
+    font-size: 1.7em;
+}
+
+.exercise-modal-card h3 {
+    margin-top: 18px;
+    margin-bottom: 8px;
+    color: #1f2937;
+    font-size: 1.08em;
+}
+
+.exercise-line {
+    margin: 5px 0;
+    color: #374151;
+    line-height: 1.45;
+}
+
+#exercise-howto {
+    color: #374151;
+    line-height: 1.6;
+}
+
+.exercise-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+}
+
+.exercise-image,
+.exercise-image-placeholder {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px dashed #cbd5e1;
+    min-height: 120px;
+    object-fit: cover;
+    background: #f8fafc;
+}
+
+.exercise-image-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.9em;
+    color: #6b7280;
+    padding: 12px;
+}
+
 /* Tab Button Active States */
 
 
@@ -347,5 +444,14 @@ h1 {
 
     .muscle-groups {
         font-size: 0.9em;
+    }
+
+    .exercise-modal-card {
+        padding: 18px;
+    }
+
+    .exercise-modal-card h2 {
+        font-size: 1.35em;
+        padding-right: 24px;
     }
 }

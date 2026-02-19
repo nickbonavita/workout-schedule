@@ -1,37 +1,230 @@
 document.addEventListener('DOMContentLoaded', function() {
     const tabButtons = document.querySelectorAll('.tab-button');
     const tabContents = document.querySelectorAll('.tab-content');
+    const workoutCards = document.querySelectorAll('.workout-card');
     const body = document.body;
+    const exerciseModal = document.getElementById('exercise-modal');
+    const exerciseClose = document.getElementById('exercise-close');
+
+    const exerciseTitle = document.getElementById('exercise-title');
+    const exercisePrimary = document.getElementById('exercise-primary');
+    const exerciseSecondary = document.getElementById('exercise-secondary');
+    const exerciseTertiary = document.getElementById('exercise-tertiary');
+    const exerciseHowTo = document.getElementById('exercise-howto');
+    const exerciseImages = document.getElementById('exercise-images');
+
+    const EXERCISE_DETAILS = {
+        'Bench Press': {
+            muscles: { primary: 'Pectoralis Major', secondary: 'Anterior Deltoids', tertiary: 'Triceps Brachii' },
+            howTo: 'Lie on a flat bench with feet planted. Lower the bar to mid-chest under control, press up by driving through chest and triceps, and keep shoulders packed throughout.',
+            images: []
+        },
+        'Incline Dumbbell Press': {
+            muscles: { primary: 'Upper Pectoralis Major', secondary: 'Anterior Deltoids', tertiary: 'Triceps Brachii' },
+            howTo: 'Set bench to a slight incline. Start dumbbells at chest level, press upward and slightly inward, then lower slowly to maintain tension on the upper chest.',
+            images: []
+        },
+        'Peck Deck': {
+            muscles: { primary: 'Pectoralis Major', secondary: 'Anterior Deltoids', tertiary: 'Serratus Anterior' },
+            howTo: 'Adjust seat so handles align with chest. Bring handles together in an arc while keeping a soft bend in elbows, then return slowly to a controlled stretch.',
+            images: []
+        },
+        'Tricep Rope Pushdown': {
+            muscles: { primary: 'Triceps Brachii', secondary: 'Anconeus', tertiary: 'Core Stabilizers' },
+            howTo: 'Stand tall with elbows pinned near your sides. Push the rope down and slightly apart at the bottom, then return with control without letting elbows drift forward.',
+            images: []
+        },
+        Dips: {
+            muscles: { primary: 'Triceps Brachii', secondary: 'Pectoralis Major', tertiary: 'Anterior Deltoids' },
+            howTo: 'Support body on parallel bars, lower until elbows reach about 90 degrees, then press back up. Keep shoulders depressed and avoid shrugging at the top.',
+            images: []
+        },
+        'Pull-ups': {
+            muscles: { primary: 'Latissimus Dorsi', secondary: 'Biceps Brachii', tertiary: 'Rhomboids' },
+            howTo: 'Hang from the bar with active shoulders, pull chest toward the bar by driving elbows down, and lower in a controlled manner to full extension.',
+            images: []
+        },
+        'Cable Rows': {
+            muscles: { primary: 'Latissimus Dorsi', secondary: 'Rhomboids', tertiary: 'Biceps Brachii' },
+            howTo: 'Sit tall with neutral spine, pull handle to lower ribs while squeezing shoulder blades together, then extend arms forward under control.',
+            images: []
+        },
+        'Lat Pull Down': {
+            muscles: { primary: 'Latissimus Dorsi', secondary: 'Biceps Brachii', tertiary: 'Rhomboids' },
+            howTo: 'Grip bar slightly wider than shoulders. Pull bar to upper chest by driving elbows down and back, pause briefly, then return to full stretch.',
+            images: []
+        },
+        'Face Pulls': {
+            muscles: { primary: 'Rear Deltoids', secondary: 'Trapezius', tertiary: 'Rhomboids' },
+            howTo: 'Set rope at upper-chest to face level. Pull rope toward your nose/forehead with elbows high, externally rotating at the end range.',
+            images: []
+        },
+        'Standing Bicep Curls': {
+            muscles: { primary: 'Biceps Brachii', secondary: 'Brachialis', tertiary: 'Brachioradialis' },
+            howTo: 'Stand upright with elbows near sides. Curl weight by flexing elbows without swinging torso, then lower slowly to full extension.',
+            images: []
+        },
+        'Leg Press': {
+            muscles: { primary: 'Quadriceps', secondary: 'Glutes', tertiary: 'Hamstrings' },
+            howTo: 'Place feet shoulder-width on platform. Lower sled until knees are bent comfortably, then press through full foot without locking knees aggressively.',
+            images: []
+        },
+        'Leg Extension': {
+            muscles: { primary: 'Quadriceps', secondary: 'Vastus Medialis', tertiary: 'Vastus Lateralis' },
+            howTo: 'Align knee joint with machine pivot. Extend legs to near straight with control, squeeze quads briefly, then lower slowly to start.',
+            images: []
+        },
+        'Leg Curl': {
+            muscles: { primary: 'Hamstrings', secondary: 'Gastrocnemius', tertiary: 'Glutes' },
+            howTo: 'Set pad just above heels. Curl heels toward glutes while keeping hips stable, then return slowly to full stretch.',
+            images: []
+        },
+        'Calf Raises': {
+            muscles: { primary: 'Gastrocnemius', secondary: 'Soleus', tertiary: 'Tibialis Posterior' },
+            howTo: 'Rise onto the balls of your feet with full ankle extension, pause at the top, and lower slowly below neutral for a complete stretch.',
+            images: []
+        },
+        Running: {
+            muscles: { primary: 'Cardiovascular System', secondary: 'Quadriceps', tertiary: 'Hamstrings and Glutes' },
+            howTo: 'Maintain tall posture, slight forward lean, and quick, light steps. Keep breathing rhythmic and pace controlled for your training goal.',
+            images: []
+        },
+        Cycling: {
+            muscles: { primary: 'Quadriceps', secondary: 'Glutes', tertiary: 'Hamstrings' },
+            howTo: 'Set seat height so knee is slightly bent at the bottom of the pedal stroke. Drive evenly through each leg while maintaining steady cadence.',
+            images: []
+        },
+        Stairmaster: {
+            muscles: { primary: 'Quadriceps', secondary: 'Glutes', tertiary: 'Hamstrings' },
+            howTo: 'Keep chest up and avoid leaning heavily on rails. Step through full foot contact and maintain a sustainable pace for target duration.',
+            images: []
+        },
+        Swimming: {
+            muscles: { primary: 'Deltoids and Lats', secondary: 'Core', tertiary: 'Leg Drive Muscles' },
+            howTo: 'Streamline body position, coordinate breathing with stroke rhythm, and focus on long, efficient pulls while kicking steadily.',
+            images: []
+        },
+        Planks: {
+            muscles: { primary: 'Transverse Abdominis', secondary: 'Rectus Abdominis', tertiary: 'Erector Spinae' },
+            howTo: 'Hold a straight line from shoulders to heels with elbows under shoulders. Brace core and glutes while breathing steadily.',
+            images: []
+        },
+        Crunches: {
+            muscles: { primary: 'Rectus Abdominis', secondary: 'Obliques', tertiary: 'Hip Flexors' },
+            howTo: 'Lie on your back with knees bent, lift shoulder blades off floor by curling torso, then lower slowly without pulling on your neck.',
+            images: []
+        },
+        'Hanging Leg Raises': {
+            muscles: { primary: 'Lower Rectus Abdominis', secondary: 'Hip Flexors', tertiary: 'Obliques' },
+            howTo: 'Hang with active shoulders, raise legs by flexing hips and bracing core, then lower under control without swinging.',
+            images: []
+        },
+        'Russian Twists': {
+            muscles: { primary: 'Obliques', secondary: 'Rectus Abdominis', tertiary: 'Transverse Abdominis' },
+            howTo: 'Sit with torso slightly reclined, brace core, and rotate shoulders side to side while keeping movement controlled and balanced.',
+            images: []
+        }
+    };
 
     function setBodyBg(tabName) {
-        // Remove all bg classes
         body.classList.remove('push-active', 'pull-active', 'legs-active', 'cardio-active', 'core-active');
-        // Add the active class for this tab
         const bgClass = tabName + '-active';
         body.classList.add(bgClass);
-        console.log('Setting body class to:', bgClass);
     }
 
-    // Set initial background
+    function getFallbackMuscles(card) {
+        const muscleText = card.querySelector('.muscle-groups')?.textContent || '';
+        const muscleParts = muscleText.split(',').map((item) => item.trim()).filter(Boolean);
+
+        return {
+            primary: muscleParts[0] || 'Add primary muscle',
+            secondary: muscleParts[1] || 'Add secondary muscle',
+            tertiary: muscleParts[2] || 'Add tertiary muscle'
+        };
+    }
+
+    function setImageArea(title, images) {
+        exerciseImages.innerHTML = '';
+
+        if (images.length === 0) {
+            const placeholder = document.createElement('div');
+            placeholder.className = 'exercise-image-placeholder';
+            placeholder.textContent = `Add image URLs in EXERCISE_DETAILS["${title}"].images`;
+            exerciseImages.appendChild(placeholder);
+            return;
+        }
+
+        images.forEach((imageUrl, index) => {
+            const imageElement = document.createElement('img');
+            imageElement.className = 'exercise-image';
+            imageElement.src = imageUrl;
+            imageElement.alt = `${title} example ${index + 1}`;
+            imageElement.loading = 'lazy';
+            exerciseImages.appendChild(imageElement);
+        });
+    }
+
+    function openExerciseModal(card) {
+        const title = card.querySelector('h2')?.textContent?.trim() || 'Exercise';
+        const detail = EXERCISE_DETAILS[title] || {};
+        const muscles = detail.muscles || getFallbackMuscles(card);
+
+        exerciseTitle.textContent = title;
+        exercisePrimary.textContent = muscles.primary || 'Add primary muscle';
+        exerciseSecondary.textContent = muscles.secondary || 'Add secondary muscle';
+        exerciseTertiary.textContent = muscles.tertiary || 'Add tertiary muscle';
+
+        exerciseHowTo.textContent = detail.howTo || 'Add how-to instructions in EXERCISE_DETAILS for this exercise.';
+        setImageArea(title, detail.images || []);
+
+        exerciseModal.classList.add('open');
+        exerciseModal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeExerciseModal() {
+        exerciseModal.classList.remove('open');
+        exerciseModal.setAttribute('aria-hidden', 'true');
+    }
+
     const initialTab = document.querySelector('.tab-button.active').getAttribute('data-tab');
     setBodyBg(initialTab);
-    console.log('Initial tab:', initialTab);
 
     tabButtons.forEach(button => {
         button.addEventListener('click', function() {
             const tabName = this.getAttribute('data-tab');
-            console.log('Clicked tab:', tabName);
-
-            // Remove active class from all buttons and contents
             tabButtons.forEach(btn => btn.classList.remove('active'));
             tabContents.forEach(content => content.classList.remove('active'));
-
-            // Add active class to clicked button and corresponding content
             this.classList.add('active');
             document.getElementById(tabName).classList.add('active');
-
-            // Set body background
             setBodyBg(tabName);
         });
+    });
+
+    workoutCards.forEach((card) => {
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-label', `View details for ${card.querySelector('h2')?.textContent?.trim() || 'exercise'}`);
+
+        card.addEventListener('click', () => openExerciseModal(card));
+        card.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                openExerciseModal(card);
+            }
+        });
+    });
+
+    exerciseClose.addEventListener('click', closeExerciseModal);
+
+    exerciseModal.addEventListener('click', (event) => {
+        if (event.target === exerciseModal) {
+            closeExerciseModal();
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && exerciseModal.classList.contains('open')) {
+            closeExerciseModal();
+        }
     });
 });
