@@ -91,6 +91,28 @@ h1 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    min-height: 300px;
+    transition: background 0.3s;
+}
+
+/* Faint off-white backgrounds for each tab content area */
+#push.tab-content.active {
+    background: #FFF5F7;
+}
+#pull.tab-content.active {
+    background: #F0FBFC;
+}
+#legs.tab-content.active {
+    background: #FAF3FC;
+}
+#cardio.tab-content.active {
+    background: #F5FCF5;
+}
+#core.tab-content.active {
+    background: #FFFBF0;
 }
 
 @keyframes fadeIn {
