@@ -14,11 +14,18 @@ body {
 .container {
     max-width: 900px;
     margin: 0 auto;
-    background: transparent;
     border-radius: 15px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
     padding: 40px;
+    transition: background 0.3s;
 }
+
+/* Dynamic container backgrounds for each tab */
+.container.push-active { background: #FFF5F7; }
+.container.pull-active { background: #F0FBFC; }
+.container.legs-active { background: #FAF3FC; }
+.container.cardio-active { background: #F5FCF5; }
+.container.core-active { background: #FFFBF0; }
 
 h1 {
     text-align: center;

@@ -1,6 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
     const tabButtons = document.querySelectorAll('.tab-button');
     const tabContents = document.querySelectorAll('.tab-content');
+    const container = document.querySelector('.container');
+
+    function setContainerBg(tabName) {
+        container.classList.remove('push-active', 'pull-active', 'legs-active', 'cardio-active', 'core-active');
+        container.classList.add(tabName + '-active');
+    }
+
+    // Set initial background
+    setContainerBg(document.querySelector('.tab-button.active').getAttribute('data-tab'));
 
     tabButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -13,6 +22,9 @@ document.addEventListener('DOMContentLoaded', function() {
             // Add active class to clicked button and corresponding content
             this.classList.add('active');
             document.getElementById(tabName).classList.add('active');
+
+            // Set container background
+            setContainerBg(tabName);
         });
     });
 });
