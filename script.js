@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'Bench Press': {
             muscles: { primary: 'Pectoralis Major (Chest)', secondary: 'Anterior Deltoid (Front Shoulder)', tertiary: 'Triceps Brachii (Back of Upper Arm)' },
             howTo: 'Lie on a flat bench with feet planted. Lower the bar to mid-chest under control, press up by driving through chest and triceps, and keep shoulders packed throughout.',
-            images: []
+            images: ['https://training.fit/wp-content/uploads/2019/07/bankdruecken-kurzhantel-flachbank.png']
         },
         'Incline Dumbbell Press': {
             muscles: { primary: 'Clavicular Pectoralis Major (Upper Chest)', secondary: 'Anterior Deltoid (Front Shoulder)', tertiary: 'Triceps Brachii (Back of Upper Arm)' },
