@@ -102,9 +102,11 @@ h1 {
 .tabs {
     display: flex;
     width: 100%;
-    margin: 40px auto 50px;
+    margin: 28px auto 36px;
     padding: 0;
-    border-radius: 999px;
+    border-radius: 2.5em;
+    min-height: 44px;
+    max-width: 700px;
     overflow: hidden;
     background: linear-gradient(90deg,
         #FFB3BA 0%, #FFB3BA 20%,
@@ -112,23 +114,23 @@ h1 {
         #CE93D8 40%, #CE93D8 60%,
         #81C784 60%, #81C784 80%,
         #FFB74D 80%, #FFB74D 100%);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10);
 }
 
 
 .tab-button {
     flex: 1;
-    padding: 18px 10px;
+    padding: 10px 6px;
     border: none;
     border-radius: 0;
-    font-size: 0.95em;
+    font-size: 0.93em;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.25s ease;
+    transition: all 0.22s cubic-bezier(.4,0,.2,1);
     background: transparent;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.92);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.7px;
 }
 
 /* Neutral off-white backgrounds for each tab */
