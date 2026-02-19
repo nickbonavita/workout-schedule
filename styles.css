@@ -139,9 +139,23 @@ h1 {
 }
 
 .tab-button.active {
-    color: #2c3e50;
-    background: rgba(255, 255, 255, 0.9);
-    box-shadow: inset 0 -4px 12px rgba(0, 0, 0, 0.15);
+    color: #fff;
+    background: rgba(0,0,0,0.12);
+}
+.tab-button.active[data-tab="push"] {
+    background: #e57373;
+}
+.tab-button.active[data-tab="pull"] {
+    background: #29b6f6;
+}
+.tab-button.active[data-tab="legs"] {
+    background: #ab47bc;
+}
+.tab-button.active[data-tab="cardio"] {
+    background: #43a047;
+}
+.tab-button.active[data-tab="core"] {
+    background: #ffa726;
 }
 
 /* Tab Content */
