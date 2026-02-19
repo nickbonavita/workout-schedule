@@ -220,25 +220,41 @@ h1 {
     color: white;
 }
 
-/* Ensure inactive tabs use subtle off-white tints matching their section colors */
+/* Ensure inactive tabs use subtle off-white tints matching their section colors
+   and increase contrast for better visibility */
 .tabs .tab-button:not(.active)[data-tab="push"] {
-    background: #FFF5F7;
+    background: #FFEFF1;
+    color: #7a3336;
+    border-color: rgba(218,83,85,0.18);
 }
 
 .tabs .tab-button:not(.active)[data-tab="pull"] {
-    background: #F0FBFC;
+    background: #E8F8FA;
+    color: #155b66;
+    border-color: rgba(3,138,155,0.14);
 }
 
 .tabs .tab-button:not(.active)[data-tab="legs"] {
-    background: #FAF3FC;
+    background: #F6EEFA;
+    color: #512b4f;
+    border-color: rgba(142,36,170,0.12);
 }
 
 .tabs .tab-button:not(.active)[data-tab="cardio"] {
-    background: #F5FCF5;
+    background: #EEF9EF;
+    color: #264f2a;
+    border-color: rgba(56,142,60,0.12);
 }
 
 .tabs .tab-button:not(.active)[data-tab="core"] {
-    background: #f8edcd;
+    background: #FFF6E6;
+    color: #7a5a10;
+    border-color: rgba(245,124,0,0.12);
+}
+
+/* Slightly increase the default tab-button border so tints show on white containers */
+.tab-button {
+    border: 1px solid transparent;
 }
 /* Responsive Design */
 @media (max-width: 768px) {
