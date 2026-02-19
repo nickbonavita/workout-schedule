@@ -1,4 +1,6 @@
 # Workout Schedule Website
+Here you go: https://nickbonavita.github.io/workout-schedule/
+
 
 A beautiful, interactive workout schedule website built with HTML, CSS, and JavaScript. Features five workout categories with unique pastel color schemes.
 
