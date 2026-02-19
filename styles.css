@@ -21,11 +21,11 @@ body {
 }
 
 /* Dynamic container backgrounds for each tab */
-.container.push-active { background: #FFF5F7; }
-.container.pull-active { background: #F0FBFC; }
-.container.legs-active { background: #FAF3FC; }
-.container.cardio-active { background: #F5FCF5; }
-.container.core-active { background: #FFFBF0; }
+.container.push-active { background: #FFF5F7 !important; }
+.container.pull-active { background: #F0FBFC !important; }
+.container.legs-active { background: #FAF3FC !important; }
+.container.cardio-active { background: #F5FCF5 !important; }
+.container.core-active { background: #FFFBF0 !important; }
 
 h1 {
     text-align: center;
