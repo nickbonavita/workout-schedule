@@ -663,7 +663,7 @@ body.advice-modal-open .advice-button-stack {
 
     .advice-button-stack {
         position: static;
-        margin: 8px 14px calc(14px + env(safe-area-inset-bottom));
+        margin: 40px 14px calc(10px + env(safe-area-inset-bottom));
         width: auto;
         z-index: auto;
         align-items: stretch;
