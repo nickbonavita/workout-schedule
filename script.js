@@ -254,6 +254,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        closeLifestyleAdviceModal();
         setAdviceTab('general-advice-content');
         generalAdviceModal.classList.add('open');
         generalAdviceModal.setAttribute('aria-hidden', 'false');
@@ -287,6 +288,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        closeGeneralAdviceModal();
         setLifestyleTab('lifestyle-diet-content');
         lifestyleAdviceModal.classList.add('open');
         lifestyleAdviceModal.setAttribute('aria-hidden', 'false');
