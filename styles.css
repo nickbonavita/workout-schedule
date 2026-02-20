@@ -613,7 +613,7 @@ body.advice-modal-open .advice-button-stack {
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
-        padding: 40px 24px 60px;
+        padding: 40px 24px calc(190px + env(safe-area-inset-bottom));
     }
 
     h1 {
