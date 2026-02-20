@@ -150,7 +150,10 @@
         </div>
     </div>
 
-    <button id="general-advice-button" class="general-advice-button" type="button">General Workout Advice</button>
+    <div class="advice-button-stack">
+        <button id="lifestyle-advice-button" class="lifestyle-advice-button" type="button">General Lifestyle Advice</button>
+        <button id="general-advice-button" class="general-advice-button" type="button">General Workout Advice</button>
+    </div>
 
     <div id="general-advice-modal" class="exercise-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="general-advice-title">
         <div class="exercise-modal-card general-advice-card">
@@ -203,7 +206,6 @@
 
                 <h3>Programming Tips</h3>
                 <ul>
-                    <li>Pair anti-extension, anti-rotation, and flexion-based movements for balanced development.</li>
                     <li>Keep form strict and breathing controlled to maintain quality as fatigue builds.</li>
                     <li>Increase challenge over time by adding reps, extending hold times, or reducing rest intervals.</li>
                 </ul>
@@ -211,6 +213,59 @@
         </div>
     </div>
 
-    <script src="script.js?v=20260220f"></script>
+    <div id="lifestyle-advice-modal" class="exercise-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="lifestyle-advice-title">
+        <div class="exercise-modal-card lifestyle-advice-card">
+            <button id="lifestyle-advice-close" class="exercise-close" type="button" aria-label="Close general lifestyle advice">×</button>
+            <h2 id="lifestyle-advice-title">General Lifestyle Advice</h2>
+            <div class="lifestyle-tabs" role="tablist" aria-label="Lifestyle tabs">
+                <button class="lifestyle-tab-button active" type="button" role="tab" aria-selected="true" data-lifestyle-tab="lifestyle-diet-content">Diet</button>
+                <button class="lifestyle-tab-button" type="button" role="tab" aria-selected="false" data-lifestyle-tab="lifestyle-movement-content">Daily Movement</button>
+            </div>
+
+            <div id="lifestyle-diet-content" class="lifestyle-tab-content active" role="tabpanel">
+                <h3>Calories</h3>
+                <ul>
+                    <li>Calorie balance is the number one driver of weight control.</li>
+                    <li>Consistently eating above maintenance tends to increase body weight, while eating below maintenance tends to reduce it.</li>
+                </ul>
+
+                <h3>Macronutrients</h3>
+                <ul>
+                    <li>Protein supports muscle growth, repair, and recovery.</li>
+                    <li><span class="diet-target-positive">For weight lifting, a practical protein target is about 0.75 × body weight (in pounds) as grams per day.</span></li>
+                    <li><span class="diet-target-positive">Example: a 200-pound person should aim for about 150 grams of protein per day.</span></li>
+                    <li>Carbohydrates fuel performance and are especially useful for cardio and higher-volume training.</li>
+                    <li>Fats are essential for hormonal balance, nutrient absorption, and overall health.</li>
+                    <li>All three macronutrients matter and should be included in a balanced plan.</li>
+                </ul>
+
+                <h3>What to Look Out For</h3>
+                <ul>
+                    <li><span class="diet-target-positive">Try to build meals around whole grains, with a strong baseline goal of at least 50% of your grain intake coming from whole-grain sources.</span></li>
+                    <li>Fiber helps digestion, satiety, blood sugar control, and long-term heart health.</li>
+                    <li><span class="diet-target-positive">Aim for roughly 15 to 20 grams of fiber per day as a minimum target.</span></li>
+                    <li>High intakes of added sugar can make calorie control harder and may negatively affect metabolic health over time.</li>
+                    <li><span class="diet-target-negative">Keep added sugar under about 35 grams per day.</span></li>
+                    <li>Excess saturated fat can be problematic for cardiovascular health in some people.</li>
+                    <li><span class="diet-target-negative">Keep saturated fat under 20 grams per day, and lower is generally better when practical.</span></li>
+                    <li><span class="diet-target-negative">Avoid trans fat entirely whenever possible. The safe daily target is 0 grams.</span></li>
+                    <li>Prioritize unsaturated fats and whole grains to support better energy, heart health, and dietary quality.</li>
+                </ul>
+            </div>
+
+            <div id="lifestyle-movement-content" class="lifestyle-tab-content" role="tabpanel" aria-hidden="true">
+                <h3>Build It Into Your Day</h3>
+                <ul>
+                    <li>The easiest way to improve lifestyle activity is to attach movement to routines you already do every day.</li>
+                    <li>Take a short walk around the block with your morning coffee.</li>
+                    <li>Go for a brief stroll after meals to support insulin sensitivity and post-meal blood sugar control.</li>
+                    <li>Park farther away than usual to add low-effort steps throughout the day.</li>
+                    <li>Small, repeatable habits often produce better long-term results than occasional all-or-nothing efforts.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js?v=20260220g"></script>
 </body>
 </html>

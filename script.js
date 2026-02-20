@@ -10,6 +10,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const generalAdviceClose = document.getElementById('general-advice-close');
     const adviceTabButtons = document.querySelectorAll('.advice-tab-button');
     const adviceTabContents = document.querySelectorAll('.advice-tab-content');
+    const lifestyleAdviceButton = document.getElementById('lifestyle-advice-button');
+    const lifestyleAdviceModal = document.getElementById('lifestyle-advice-modal');
+    const lifestyleAdviceClose = document.getElementById('lifestyle-advice-close');
+    const lifestyleTabButtons = document.querySelectorAll('.lifestyle-tab-button');
+    const lifestyleTabContents = document.querySelectorAll('.lifestyle-tab-content');
 
     let exerciseTitle = document.getElementById('exercise-title');
     let exercisePrimary = document.getElementById('exercise-primary');
@@ -263,6 +268,39 @@ document.addEventListener('DOMContentLoaded', function() {
         generalAdviceModal.setAttribute('aria-hidden', 'true');
     }
 
+    function setLifestyleTab(tabId) {
+        lifestyleTabButtons.forEach((button) => {
+            const isActive = button.getAttribute('data-lifestyle-tab') === tabId;
+            button.classList.toggle('active', isActive);
+            button.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+
+        lifestyleTabContents.forEach((content) => {
+            const isActive = content.id === tabId;
+            content.classList.toggle('active', isActive);
+            content.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+        });
+    }
+
+    function openLifestyleAdviceModal() {
+        if (!lifestyleAdviceModal) {
+            return;
+        }
+
+        setLifestyleTab('lifestyle-diet-content');
+        lifestyleAdviceModal.classList.add('open');
+        lifestyleAdviceModal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeLifestyleAdviceModal() {
+        if (!lifestyleAdviceModal) {
+            return;
+        }
+
+        lifestyleAdviceModal.classList.remove('open');
+        lifestyleAdviceModal.setAttribute('aria-hidden', 'true');
+    }
+
     const initialActiveTabButton = document.querySelector('.tab-button.active');
     if (initialActiveTabButton) {
         const initialTab = initialActiveTabButton.getAttribute('data-tab');
@@ -311,11 +349,28 @@ document.addEventListener('DOMContentLoaded', function() {
         generalAdviceClose.addEventListener('click', closeGeneralAdviceModal);
     }
 
+    if (lifestyleAdviceButton) {
+        lifestyleAdviceButton.addEventListener('click', openLifestyleAdviceModal);
+    }
+
+    if (lifestyleAdviceClose) {
+        lifestyleAdviceClose.addEventListener('click', closeLifestyleAdviceModal);
+    }
+
     adviceTabButtons.forEach((button) => {
         button.addEventListener('click', () => {
             const tabId = button.getAttribute('data-advice-tab');
             if (tabId) {
                 setAdviceTab(tabId);
+            }
+        });
+    });
+
+    lifestyleTabButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const tabId = button.getAttribute('data-lifestyle-tab');
+            if (tabId) {
+                setLifestyleTab(tabId);
             }
         });
     });
@@ -336,6 +391,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    if (lifestyleAdviceModal) {
+        lifestyleAdviceModal.addEventListener('click', (event) => {
+            if (event.target === lifestyleAdviceModal) {
+                closeLifestyleAdviceModal();
+            }
+        });
+    }
+
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape' && exerciseModal.classList.contains('open')) {
             closeExerciseModal();
@@ -343,6 +406,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (event.key === 'Escape' && generalAdviceModal && generalAdviceModal.classList.contains('open')) {
             closeGeneralAdviceModal();
+        }
+
+        if (event.key === 'Escape' && lifestyleAdviceModal && lifestyleAdviceModal.classList.contains('open')) {
+            closeLifestyleAdviceModal();
         }
     });
 });

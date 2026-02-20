@@ -401,11 +401,19 @@ h1 {
     padding: 12px;
 }
 
-.general-advice-button {
+.advice-button-stack {
     position: fixed;
     right: 20px;
     bottom: 20px;
     z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+.general-advice-button,
+.lifestyle-advice-button {
     border: none;
     border-radius: 999px;
     background: #c8b7a3;
@@ -420,23 +428,28 @@ h1 {
     transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.general-advice-button:hover {
+.general-advice-button:hover,
+.lifestyle-advice-button:hover {
     background: #bda893;
     transform: translateY(-1px);
 }
 
 .general-advice-button:focus,
-.general-advice-button:focus-visible {
+.general-advice-button:focus-visible,
+.lifestyle-advice-button:focus,
+.lifestyle-advice-button:focus-visible {
     outline: 2px solid rgba(108, 91, 72, 0.4);
     outline-offset: 2px;
 }
 
-.general-advice-card {
+.general-advice-card,
+.lifestyle-advice-card {
     background: #f2ece5;
     border: 1px solid #ddd2c6;
 }
 
-.general-advice-card h2 {
+.general-advice-card h2,
+.lifestyle-advice-card h2 {
     color: #4a4036;
     border-bottom-color: #d5c8ba;
 }
@@ -494,26 +507,91 @@ h1 {
     display: block;
 }
 
-.general-advice-card h3 {
+.lifestyle-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+    padding-right: 24px;
+}
+
+.lifestyle-tab-button {
+    border: 1px solid #d2c3b2;
+    border-radius: 999px;
+    background: #e9dfd4;
+    color: #51453a;
+    padding: 8px 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.lifestyle-tab-button:hover {
+    background: #ddd0c2;
+}
+
+.lifestyle-tab-button.active {
+    background: #c2af99;
+    color: #3e3328;
+    border-color: #ac9881;
+}
+
+.lifestyle-tab-content {
+    display: none;
+    background: rgba(244, 237, 229, 0.85);
+    border: 1px solid #ddd1c4;
+    border-radius: 10px;
+    padding: 14px 16px;
+}
+
+.lifestyle-tab-content.active {
+    display: block;
+}
+
+.general-advice-card h3,
+.lifestyle-advice-card h3 {
     margin-top: 0;
     margin-bottom: 8px;
     color: #4a4036;
     font-size: 1.02em;
 }
 
-.general-advice-card ul {
+.general-advice-card ul,
+.lifestyle-advice-card ul {
     margin: 0 0 12px 18px;
     padding: 0;
 }
 
-.general-advice-card li {
+.general-advice-card li,
+.lifestyle-advice-card li {
     color: #4e4338;
     line-height: 1.6;
     margin-bottom: 6px;
 }
 
-.general-advice-card li:last-child {
+.general-advice-card li:last-child,
+.lifestyle-advice-card li:last-child {
     margin-bottom: 0;
+}
+
+.diet-target-positive {
+    display: inline-block;
+    background: #dff3e2;
+    border: 1px solid #b6dfbf;
+    color: #2e5c36;
+    padding: 2px 6px;
+    border-radius: 6px;
+}
+
+.diet-target-negative {
+    display: inline-block;
+    background: #f6dfdf;
+    border: 1px solid #e7bbbb;
+    color: #6b3030;
+    padding: 2px 6px;
+    border-radius: 6px;
 }
 
 /* Tab Button Active States */
