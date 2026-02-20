@@ -258,6 +258,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setAdviceTab('general-advice-content');
         generalAdviceModal.classList.add('open');
         generalAdviceModal.setAttribute('aria-hidden', 'false');
+        body.classList.add('advice-modal-open');
     }
 
     function closeGeneralAdviceModal() {
@@ -267,6 +268,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         generalAdviceModal.classList.remove('open');
         generalAdviceModal.setAttribute('aria-hidden', 'true');
+
+        if (!lifestyleAdviceModal || !lifestyleAdviceModal.classList.contains('open')) {
+            body.classList.remove('advice-modal-open');
+        }
     }
 
     function closeAllAdviceModals() {
@@ -297,6 +302,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setLifestyleTab('lifestyle-diet-content');
         lifestyleAdviceModal.classList.add('open');
         lifestyleAdviceModal.setAttribute('aria-hidden', 'false');
+        body.classList.add('advice-modal-open');
     }
 
     function closeLifestyleAdviceModal() {
@@ -306,6 +312,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         lifestyleAdviceModal.classList.remove('open');
         lifestyleAdviceModal.setAttribute('aria-hidden', 'true');
+
+        if (!generalAdviceModal || !generalAdviceModal.classList.contains('open')) {
+            body.classList.remove('advice-modal-open');
+        }
     }
 
     const initialActiveTabButton = document.querySelector('.tab-button.active');

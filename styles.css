@@ -412,6 +412,10 @@ h1 {
     align-items: flex-end;
 }
 
+body.advice-modal-open .advice-button-stack {
+    display: none;
+}
+
 .general-advice-button,
 .lifestyle-advice-button {
     box-sizing: border-box;
