@@ -613,7 +613,7 @@ body.advice-modal-open .advice-button-stack {
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
-        padding: 40px 24px calc(190px + env(safe-area-inset-bottom));
+        padding: 40px 24px 70px;
     }
 
     h1 {
@@ -662,8 +662,10 @@ body.advice-modal-open .advice-button-stack {
     }
 
     .advice-button-stack {
-        right: 14px;
-        left: 14px;
+        position: static;
+        margin: 8px 14px calc(14px + env(safe-area-inset-bottom));
+        width: auto;
+        z-index: auto;
         align-items: stretch;
     }
 
