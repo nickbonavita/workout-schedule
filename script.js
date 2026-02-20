@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'Face Pulls': {
             muscles: { primary: 'Posterior Deltoid (Rear Shoulder)', secondary: 'Trapezius (Upper/Mid Traps)', tertiary: 'Rhomboids (Upper Back)' },
             howTo: 'Set rope at upper-chest to face level. Pull rope toward your nose/forehead with elbows high, externally rotating at the end range.',
-            images: []
+            images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCJqQblZ7ituMk7w_aCopAeSdpUUJVdegrhQ&s"]
         },
         'Standing Bicep Curls': {
             muscles: { primary: 'Biceps Brachii (Front Upper Arm)', secondary: 'Brachialis (Deep Elbow Flexor)', tertiary: 'Brachioradialis (Forearm)' },
@@ -106,22 +106,22 @@ document.addEventListener('DOMContentLoaded', function() {
         'Leg Press': {
             muscles: { primary: 'Quadriceps (Front Thigh)', secondary: 'Gluteus Maximus (Glutes)', tertiary: 'Hamstrings (Back Thigh)' },
             howTo: 'Place feet shoulder-width on platform. Lower sled until knees are bent comfortably, then press through full foot without locking knees aggressively.',
-            images: []
+            images: ["https://training.fit/wp-content/uploads/2020/03/beinpresse.png"]
         },
         'Leg Extension': {
             muscles: { primary: 'Quadriceps (Front Thigh)', secondary: 'Vastus Medialis (Inner Quad)', tertiary: 'Vastus Lateralis (Outer Quad)' },
             howTo: 'Align knee joint with machine pivot. Extend legs to near straight with control, squeeze quads briefly, then lower slowly to start.',
-            images: []
+            images: ["https://training.fit/wp-content/uploads/2020/03/beinstrecken-geraet-1.png"]
         },
         'Leg Curl': {
             muscles: { primary: 'Hamstrings (Back Thigh)', secondary: 'Gastrocnemius (Calf)', tertiary: 'Gluteus Maximus (Glutes)' },
             howTo: 'Set pad just above heels. Curl heels toward glutes while keeping hips stable, then return slowly to full stretch.',
-            images: []
+            images: ["https://anabolicaliens.com/cdn/shop/articles/5fd7d1877ec308ebe3f92223_seated-hamstring-curl.png?v=1641744558"]
         },
         'Calf Raises': {
             muscles: { primary: 'Gastrocnemius (Calf)', secondary: 'Soleus (Deep Calf)', tertiary: 'Tibialis Posterior (Ankle Stabilizer)' },
             howTo: 'Rise onto the balls of your feet with full ankle extension, pause at the top, and lower slowly below neutral for a complete stretch.',
-            images: []
+            images: ["https://training.fit/wp-content/uploads/2020/03/wadenheben-stufen.png"]
         },
         Running: {
             muscles: { primary: 'Quadriceps (Front Thigh)', secondary: 'Hamstrings (Back Thigh)', tertiary: 'Gluteus Maximus and Medius (Glutes)' },
