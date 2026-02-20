@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        closeLifestyleAdviceModal();
+        closeAllAdviceModals();
         setAdviceTab('general-advice-content');
         generalAdviceModal.classList.add('open');
         generalAdviceModal.setAttribute('aria-hidden', 'false');
@@ -267,6 +267,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         generalAdviceModal.classList.remove('open');
         generalAdviceModal.setAttribute('aria-hidden', 'true');
+    }
+
+    function closeAllAdviceModals() {
+        closeGeneralAdviceModal();
+        closeLifestyleAdviceModal();
     }
 
     function setLifestyleTab(tabId) {
@@ -288,7 +293,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        closeGeneralAdviceModal();
+        closeAllAdviceModals();
         setLifestyleTab('lifestyle-diet-content');
         lifestyleAdviceModal.classList.add('open');
         lifestyleAdviceModal.setAttribute('aria-hidden', 'false');
