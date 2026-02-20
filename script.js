@@ -5,6 +5,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const body = document.body;
     let exerciseModal = document.getElementById('exercise-modal');
     let exerciseClose = document.getElementById('exercise-close');
+    const generalAdviceButton = document.getElementById('general-advice-button');
+    const generalAdviceModal = document.getElementById('general-advice-modal');
+    const generalAdviceClose = document.getElementById('general-advice-close');
+    const adviceTabButtons = document.querySelectorAll('.advice-tab-button');
+    const adviceTabContents = document.querySelectorAll('.advice-tab-content');
 
     let exerciseTitle = document.getElementById('exercise-title');
     let exercisePrimary = document.getElementById('exercise-primary');
@@ -225,6 +230,39 @@ document.addEventListener('DOMContentLoaded', function() {
         exerciseModal.setAttribute('aria-hidden', 'true');
     }
 
+    function setAdviceTab(tabId) {
+        adviceTabButtons.forEach((button) => {
+            const isActive = button.getAttribute('data-advice-tab') === tabId;
+            button.classList.toggle('active', isActive);
+            button.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+
+        adviceTabContents.forEach((content) => {
+            const isActive = content.id === tabId;
+            content.classList.toggle('active', isActive);
+            content.setAttribute('aria-hidden', isActive ? 'false' : 'true');
+        });
+    }
+
+    function openGeneralAdviceModal() {
+        if (!generalAdviceModal) {
+            return;
+        }
+
+        setAdviceTab('general-advice-content');
+        generalAdviceModal.classList.add('open');
+        generalAdviceModal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeGeneralAdviceModal() {
+        if (!generalAdviceModal) {
+            return;
+        }
+
+        generalAdviceModal.classList.remove('open');
+        generalAdviceModal.setAttribute('aria-hidden', 'true');
+    }
+
     const initialActiveTabButton = document.querySelector('.tab-button.active');
     if (initialActiveTabButton) {
         const initialTab = initialActiveTabButton.getAttribute('data-tab');
@@ -265,6 +303,23 @@ document.addEventListener('DOMContentLoaded', function() {
         exerciseClose.addEventListener('click', closeExerciseModal);
     }
 
+    if (generalAdviceButton) {
+        generalAdviceButton.addEventListener('click', openGeneralAdviceModal);
+    }
+
+    if (generalAdviceClose) {
+        generalAdviceClose.addEventListener('click', closeGeneralAdviceModal);
+    }
+
+    adviceTabButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+            const tabId = button.getAttribute('data-advice-tab');
+            if (tabId) {
+                setAdviceTab(tabId);
+            }
+        });
+    });
+
     if (exerciseModal) {
         exerciseModal.addEventListener('click', (event) => {
             if (event.target === exerciseModal) {
@@ -273,9 +328,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    if (generalAdviceModal) {
+        generalAdviceModal.addEventListener('click', (event) => {
+            if (event.target === generalAdviceModal) {
+                closeGeneralAdviceModal();
+            }
+        });
+    }
+
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape' && exerciseModal.classList.contains('open')) {
             closeExerciseModal();
+        }
+
+        if (event.key === 'Escape' && generalAdviceModal && generalAdviceModal.classList.contains('open')) {
+            closeGeneralAdviceModal();
         }
     });
 });
