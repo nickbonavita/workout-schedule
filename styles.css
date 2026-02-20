@@ -453,6 +453,7 @@ h1 {
 
 .advice-tabs {
     display: flex;
+    flex-wrap: wrap;
     gap: 8px;
     margin-bottom: 14px;
     padding-right: 24px;
