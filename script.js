@@ -61,37 +61,37 @@ document.addEventListener('DOMContentLoaded', function() {
         'Incline Dumbbell Press': {
             muscles: { primary: 'Clavicular Pectoralis Major (Upper Chest)', secondary: 'Anterior Deltoid (Front Shoulder)', tertiary: 'Triceps Brachii (Back of Upper Arm)' },
             howTo: 'Set bench to a slight incline. Start dumbbells at chest level, press upward and slightly inward, then lower slowly to maintain tension on the upper chest.',
-            images: []
+            images: ["https://training.fit/wp-content/uploads/2020/02/bankdruecken-kurzhantel-schraeg-800x448.png"]
         },
         'Peck Deck': {
             muscles: { primary: 'Pectoralis Major (Chest)', secondary: 'Anterior Deltoid (Front Shoulder)', tertiary: 'Serratus Anterior (Ribcage Stabilizer)' },
             howTo: 'Adjust seat so handles align with chest. Bring handles together in an arc while keeping a soft bend in elbows, then return slowly to a controlled stretch.',
-            images: []
+            images: ["https://training.fit/wp-content/uploads/2020/02/butterflys.png"]
         },
         'Tricep Rope Pushdown': {
             muscles: { primary: 'Triceps Brachii (Back of Upper Arm)', secondary: 'Anconeus (Elbow Extensor)', tertiary: 'Rectus Abdominis and Obliques (Core Stabilizers)' },
             howTo: 'Stand tall with elbows pinned near your sides. Push the rope down and slightly apart at the bottom, then return with control without letting elbows drift forward.',
-            images: []
+            images: ["https://training.fit/wp-content/uploads/2020/03/trizepsdruecken-kabelzug.png"]
         },
         Dips: {
             muscles: { primary: 'Triceps Brachii (Back of Upper Arm)', secondary: 'Pectoralis Major (Chest)', tertiary: 'Anterior Deltoid (Front Shoulder)' },
             howTo: 'Support body on parallel bars, lower until elbows reach about 90 degrees, then press back up. Keep shoulders depressed and avoid shrugging at the top.',
-            images: []
+            images: ["https://training.fit/wp-content/uploads/2020/02/dips.png"]
         },
         'Pull-ups': {
             muscles: { primary: 'Latissimus Dorsi (Lats)', secondary: 'Biceps Brachii (Front Upper Arm)', tertiary: 'Rhomboids (Upper Back)' },
             howTo: 'Hang from the bar with active shoulders, pull chest toward the bar by driving elbows down, and lower in a controlled manner to full extension.',
-            images: []
+            images: ["https://training.fit/wp-content/uploads/2020/03/klimmzuege-latgriff.png"]
         },
         'Cable Rows': {
             muscles: { primary: 'Latissimus Dorsi (Lats)', secondary: 'Rhomboids (Upper Back)', tertiary: 'Biceps Brachii (Front Upper Arm)' },
             howTo: 'Sit tall with neutral spine, pull handle to lower ribs while squeezing shoulder blades together, then extend arms forward under control.',
-            images: []
+            images: ["https://training.fit/wp-content/uploads/2020/02/rudern-kabelzug.png"]
         },
         'Lat Pull Down': {
             muscles: { primary: 'Latissimus Dorsi (Lats)', secondary: 'Biceps Brachii (Front Upper Arm)', tertiary: 'Rhomboids (Upper Back)' },
             howTo: 'Grip bar slightly wider than shoulders. Pull bar to upper chest by driving elbows down and back, pause briefly, then return to full stretch.',
-            images: []
+            images: ["https://training.fit/wp-content/uploads/2020/02/latzug.png"]
         },
         'Face Pulls': {
             muscles: { primary: 'Posterior Deltoid (Rear Shoulder)', secondary: 'Trapezius (Upper/Mid Traps)', tertiary: 'Rhomboids (Upper Back)' },
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
         'Standing Bicep Curls': {
             muscles: { primary: 'Biceps Brachii (Front Upper Arm)', secondary: 'Brachialis (Deep Elbow Flexor)', tertiary: 'Brachioradialis (Forearm)' },
             howTo: 'Stand upright with elbows near sides. Curl weight by flexing elbows without swinging torso, then lower slowly to full extension.',
-            images: []
+            images: ["https://training.fit/wp-content/uploads/2018/12/bizepscurls.png"]
         },
         'Leg Press': {
             muscles: { primary: 'Quadriceps (Front Thigh)', secondary: 'Gluteus Maximus (Glutes)', tertiary: 'Hamstrings (Back Thigh)' },
