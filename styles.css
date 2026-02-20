@@ -667,5 +667,11 @@ h1 {
     .general-advice-button {
         min-width: 0;
         width: 100%;
+        height: auto;
+        min-height: 50px;
+        white-space: normal;
+        line-height: 1.2;
+        padding: 10px 14px;
+        font-size: 0.9em;
     }
 }
